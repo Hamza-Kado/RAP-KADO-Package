@@ -1,0 +1,12 @@
+@EndUserText.label: 'Processor App Service Definition'
+define service ZATS_HA_SD_V2_PROCESSOR {
+  expose zats_ha_travel_prosessor    as Travel;
+  expose ZATS_HA_BOOKING_PROSESSOR   as Booking;
+  expose ZATS_HA_BOOKSUPPL_PROSESSOR as BookSupplement;
+  expose /DMO/I_Agency               as agency;
+  expose /DMO/I_Customer             as Customer;
+  expose /DMO/I_Carrier              as Carrier;
+  expose /DMO/I_Connection           as connection;
+  expose /DMO/I_Overall_Status_VH    as OverallStatus;
+  expose /DMO/I_Booking_Status_VH    as Booking_status;
+}

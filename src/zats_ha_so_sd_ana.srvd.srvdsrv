@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Sales Order Analytical'
+define service ZATS_HA_SO_SD_ANA {
+  expose ZC_ATS_HA_SALES_ANA;
+}

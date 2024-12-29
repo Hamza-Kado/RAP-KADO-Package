@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Sales Order Non Analytical'
+define service ZATS_HA_SO_SD_NA {
+  expose ZC_ATS_HA_SALES_NA as Sales;
+}
