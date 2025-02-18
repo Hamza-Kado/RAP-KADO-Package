@@ -1,0 +1,123 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Booking',
+    typeNamePlural: 'Bookings',
+    title: { value: 'BookingId'},
+//    description: { value: 'CustomerId'}    
+   description: { value: '_carrier.Name'}    
+    
+}
+
+annotate view ZATS_HA_BOOKING_PROSESSOR
+    with 
+{
+ @UI.facet: [{
+    
+     purpose: #HEADER,
+     position: 10,
+     label: 'Flight Price',
+     type:#DATAPOINT_REFERENCE,
+     targetQualifier: 'FlightPrice'
+ },
+  { 
+     purpose: #HEADER,
+     position: 20,
+     label: 'Flight Number',
+     type:#DATAPOINT_REFERENCE,
+     targetQualifier: 'ConnectionId'
+  },
+     {
+       purpose:#STANDARD,
+       type: #COLLECTION,
+       position: 10,
+       label: 'Aditional Details',
+       id: 'super'      
+     },
+     {
+       purpose:#STANDARD,
+       type: #IDENTIFICATION_REFERENCE,
+       position: 10,
+       label: 'Booking',
+       parentId: 'super'      
+     },
+     {
+       purpose:#STANDARD,
+       type: #FIELDGROUP_REFERENCE,
+       position: 20,
+       label: 'Flight Info',
+       parentId: 'super'  ,   
+       targetQualifier: 'flight' 
+     },
+     {
+       purpose:#STANDARD,
+       type: #COLLECTION,
+       position: 20,
+       label: 'Carrier',
+       id: 'super2'      
+     },  
+     {
+       purpose:#STANDARD,
+       type: #IDENTIFICATION_REFERENCE,
+       position: 10,
+       label: 'Carrier Id',
+       parentId: 'super2',
+       targetQualifier: 'CarrierId'      
+     },
+     { 
+        purpose: #STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Connections',
+        position: 30, 
+        targetElement: '_Supplements'
+     }
+     
+ ]   
+ 
+                    
+    @UI.lineItem: [{position: 10  }]
+    @UI.identification: [{ position: 10 } ]
+    BookingId;
+    @UI.lineItem: [{position: 20  }]
+    @UI.identification: [{ position: 20 }]
+    BookingDate;
+    @UI.lineItem: [{position: 30  }]
+    @UI.identification: [{ position: 30 } ]
+    CustomerId;
+    @UI.lineItem: [{position: 40  }]
+    @UI.fieldGroup: [{ qualifier: 'flight',label: 'Airline', position: 10  }]
+//    @UI.identification: [{ position: 10, qualifier: 'CarrierId' } ]
+    @UI.identification: [{ position: 40 } ]
+    CarrierId;
+    @UI.lineItem: [{position: 50  }]
+    @UI.dataPoint: { qualifier: 'ConnectionId'}
+    @UI.identification: [{ position: 50 } ]
+    ConnectionId;
+    @UI.lineItem: [{position: 60  }]
+    @UI.identification: [{ position: 60 } ]
+    FlightDate;
+    @UI.lineItem: [{position: 70  }]
+    @UI.dataPoint: { qualifier: 'FlightPrice', title: 'Flight Price' }
+    @UI.identification: [{ position: 70 } ]
+    FlightPrice;
+    @UI.lineItem: [{position: 80  }]
+    @UI.identification: [{ position: 80 } ]
+    CurrencyCode;
+    
+//    @UI.fieldGroup: [{ qualifier: 'flight',label: 'Customer Last Name', position: 20  }]
+//    LastName;
+//    @UI.fieldGroup: [{ qualifier: 'flight',label: 'Customer First Name', position: 30  }]
+//    FirstName;
+    
+    @UI.identification: [{ position: 90 } ]
+    BookingStatus;
+//    LastChangedAt;
+//    /* Associations */
+//    _BookingStatus;
+//    _BookingStatusText;
+//    _Carrier;
+//    _Connection;
+//    _Customer;
+//    _Supplements;
+//    _Travel;
+    
+}

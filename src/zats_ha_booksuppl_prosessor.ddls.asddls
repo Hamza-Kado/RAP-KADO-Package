@@ -16,5 +16,5 @@ define view entity ZATS_HA_BOOKSUPPL_PROSESSOR as projection on ZATS_HA_BOOKSUPP
    _Booking : redirected to parent ZATS_HA_BOOKING_PROSESSOR,
    _Product,
    _SupplementText,
-   _Travel
+   _Travel : redirected to zats_ha_travel_prosessor 
 }

@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZHAK_Travel_Processor
+    with 
+{
+    @UI.selectionField: [{ position: 10   }]
+    @UI.lineItem: [{ position: 10  }]
+    TravelId;
+    @UI.selectionField: [{ position: 20   }]  
+    @UI.lineItem: [{ position: 20  }]  
+    AgencyId;
+    @UI.selectionField: [{ position: 30   }]
+    @UI.lineItem: [{ position: 30  }]
+    AgencyName;
+    @UI.selectionField: [{ position: 40   }]
+    @UI.lineItem: [{ position: 40  }]
+    CustomerId;
+//    BeginDate;
+//    EndDate;
+    @UI.lineItem: [{ position: 50  }]
+    BookingFee;
+    @UI.lineItem: [{ position: 60  }]
+    TotalPrice;
+//    CurrencyCode;
+//    Description;
+//    OverallStatus;
+//    CreatedBy;
+//    CreatedAt;
+//    LastChangedBy;
+//    LastChangedAt;
+//    /* Associations */
+//    _agency;
+//    _currency;
+//    _customer;
+//    _overall_status_text;
+//    _overall_status_vh;
+   
+}

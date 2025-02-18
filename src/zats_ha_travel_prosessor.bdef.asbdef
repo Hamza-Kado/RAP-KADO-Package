@@ -1,0 +1,32 @@
+projection;
+strict ( 2 );
+
+define behavior for zats_ha_travel_prosessor alias Travel
+{
+  use create;
+  use update;
+  use delete;
+
+  //DATA ACTION (FACTORY ACTION FOR COPING RECORD)
+  use action copyTravel;
+
+  use association _Booking { create; }
+}
+
+define behavior for ZATS_HA_BOOKING_PROSESSOR alias Booking
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+  use association _Supplements { create; }
+}
+
+define behavior for ZATS_HA_BOOKSUPPL_PROSESSOR alias BookSuppl
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+  use association _Booking;
+}

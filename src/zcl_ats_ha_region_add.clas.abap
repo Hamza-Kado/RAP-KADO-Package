@@ -22,7 +22,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_ats_ha_region_add IMPLEMENTATION.
+CLASS ZCL_ATS_HA_REGION_ADD IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

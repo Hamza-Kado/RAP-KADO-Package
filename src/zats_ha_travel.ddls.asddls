@@ -14,7 +14,6 @@ association[1..1] to  /DMO/I_Overall_Status_VH as _OverallStatus on
 $projection.OverallStatus =  _OverallStatus.OverallStatus
 association[1..1] to /DMO/I_Overall_Status_VH_Text as _overallStatusText on
 $projection.OverallStatus = _overallStatusText.OverallStatus
-
 {
      key travel_id as TravelId,
      agency_id as AgencyId,
@@ -43,9 +42,9 @@ $projection.OverallStatus = _overallStatusText.OverallStatus
         when 'X' then 'Cancelled'
        end as StatusText,
       case overall_status
-        when 'O' then 1
+        when 'O' then 0
         when 'A' then 3
-        when 'R' then 2
+        when 'R' then 1
         when 'X' then 2
      end as Criticality,
      /*Expose Associations*/

@@ -30,6 +30,8 @@ $projection.BookingStatus = _BookingStatusText.BookingStatus
      @Semantics.systemDateTime.lastChangedAt: true
      last_changed_at as LastChangedAt,
      /* Expose Association*/
+     
+     _Customer.LastName,
      _Supplements,
      _Travel, 
      _Customer,

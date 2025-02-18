@@ -19,6 +19,7 @@ define root view entity zats_ha_travel_prosessor as projection on ZATS_HA_TRAVEL
       entity.element: 'CustomerID'
      }] 
     CustomerId,
+    
     @Semantics.text: true
     _Customer.FirstName as CustomerName,
     BeginDate,
@@ -30,6 +31,14 @@ define root view entity zats_ha_travel_prosessor as projection on ZATS_HA_TRAVEL
     CurrencyCode,
     Description,
     @ObjectModel.text.element: [ 'StatusText' ]
+     @Consumption.valueHelpDefinition: [{ 
+      entity.name: '/DMO/I_Overall_Status_VH',
+      entity.element: 'OverallStatus'
+     }] 
+//      @Consumption.valueHelpDefinition: [{ 
+//      entity.name: '/DMO/I_Booking_Status_VH',
+//      entity.element: 'BookingStatus'
+//     }] 
     OverallStatus,
     CreatedBy,
     CreatedAt,
@@ -40,7 +49,7 @@ define root view entity zats_ha_travel_prosessor as projection on ZATS_HA_TRAVEL
     Criticality,
     /* Associations */
     _Agency,
-    _Booking,
+    _Booking: redirected to composition child ZATS_HA_BOOKING_PROSESSOR,
     _Currency,
     _Customer,
     _OverallStatus,

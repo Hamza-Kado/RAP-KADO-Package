@@ -28,47 +28,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_ats_ha_amdp IMPLEMENTATION.
+CLASS ZCL_ATS_HA_AMDP IMPLEMENTATION.
 
 
-  METHOD if_oo_adt_classrun~main.
-*   zcl_ats_ha_amdp=>add_number(
-*    EXPORTING
-*      a      =  10
-*      b      =  20
-*    IMPORTING
-*      result =  data(lv_res)
-*  ).
-
-*   out->write(
-*     EXPORTING
-*       data   = |The Result of AMDP Execution is -->{  lv_res }|
-*   zcl_ats_ha_amdp=>get_customer_by_id(
-*  EXPORTING
-*    i_bp_id  = '467F809CEAFB1EDFA3C51D9356C80360'
-*  IMPORTING
-*    e_result = DATA(LV_RES)
-*  ).
-* OUT->write(
-*   EXPORTING
-*     data   = LV_RES
-*
-*   ).
- zcl_ats_ha_amdp=>get_product_mrp(
-   EXPORTING
-     i_tax = 18
-   IMPORTING
-     otab  = data(result)
- ).
-
- out->write(
-   EXPORTING
-     data   = result
-*     name   =
-*   RECEIVING
-*     output =
- ).
-  ENDMETHOD.
   METHOD add_number by DATABASE PROCEDURE FOR HDB LANGUAGE SQLSCRIPT
       OPTIONS READ-ONLY  .
 
@@ -82,10 +44,12 @@ CLASS zcl_ats_ha_amdp IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_customer_by_id by database PROCEDURE FOR HDB LANGUAGE SQLSCRIPT
         OPTIONS READ-ONLY using ZATS_HA_BPA  .
      SELECT COMPANY_NAME INTO E_RESULT FROM ZATS_HA_BPA WHERE BP_ID = :I_BP_ID ;
   ENDMETHOD.
+
 
   METHOD get_product_mrp by database PROCEDURE FOR HDB LANGUAGE SQLSCRIPT
         OPTIONS READ-ONLY using ZATS_HA_PRODUCT  .
@@ -127,6 +91,7 @@ CLASS zcl_ats_ha_amdp IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_total_sales BY DATABASE FUNCTION FOR HDB LANGUAGE SQLSCRIPT
                          OPTIONS READ-ONLY
                          USING zats_ha_bpa zats_ha_so_hdr zats_ha_so_item.
@@ -148,4 +113,43 @@ CLASS zcl_ats_ha_amdp IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD if_oo_adt_classrun~main.
+*   zcl_ats_ha_amdp=>add_number(
+*    EXPORTING
+*      a      =  10
+*      b      =  20
+*    IMPORTING
+*      result =  data(lv_res)
+*  ).
+
+*   out->write(
+*     EXPORTING
+*       data   = |The Result of AMDP Execution is -->{  lv_res }|
+*   zcl_ats_ha_amdp=>get_customer_by_id(
+*  EXPORTING
+*    i_bp_id  = '467F809CEAFB1EDFA3C51D9356C80360'
+*  IMPORTING
+*    e_result = DATA(LV_RES)
+*  ).
+* OUT->write(
+*   EXPORTING
+*     data   = LV_RES
+*
+*   ).
+ zcl_ats_ha_amdp=>get_product_mrp(
+   EXPORTING
+     i_tax = 18
+   IMPORTING
+     otab  = data(result)
+ ).
+
+ out->write(
+   EXPORTING
+     data   = result
+*     name   =
+*   RECEIVING
+*     output =
+ ).
+  ENDMETHOD.
 ENDCLASS.

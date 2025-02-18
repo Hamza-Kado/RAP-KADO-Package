@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Suplements',
+    typeNamePlural: 'Suplements Info',
+    title: { value: 'BookingSupplementId'},   
+     description: { value: 'SupplementId'}    
+    
+}
+
+
+annotate entity ZATS_HA_BOOKSUPPL_PROSESSOR
+    with 
+{
+    @UI.facet: [
+     { 
+       purpose:#STANDARD,
+       type: #COLLECTION,
+       position: 10,
+       label: 'Supplements Info',
+       id: 'super'    
+     
+     },
+     
+     {
+       purpose:#STANDARD,
+       type: #IDENTIFICATION_REFERENCE,
+       position: 10,
+//       label: 'Booking',
+       parentId: 'super'      
+     }
+    ]
+   @UI.identification: [{ position: 10 } ]
+   @UI.lineItem: [{ position: 10  }]
+    TravelId;
+   @UI.identification: [{ position: 20 } ]
+   @UI.lineItem: [{ position: 20  }]
+    BookingId;
+   @UI.identification: [{ position: 30 } ]
+   @UI.lineItem: [{ position: 30  }]
+    BookingSupplementId;
+   @UI.identification: [{ position: 40 } ]
+   @UI.lineItem: [{ position: 40  }]
+     @Consumption.valueHelpDefinition: [{ 
+      entity.name: '/DMO/I_Supplement',
+      entity.element: 'SupplementID',
+       additionalBinding: [{  
+                            localElement: 'price',
+                            element: 'Price'
+     }]
+     }] 
+    SupplementId;
+   @UI.lineItem: [{ position: 50  }]
+   @UI.identification: [{ position: 50 } ]
+//   @Consumption.valueHelpDefinition: [{ 
+//      entity.name: '/DMO/I_Supplement',
+//      entity.element: 'price'
+//       additionalBinding: [{  
+//                            localElement: 'price',
+//                            element: 'Price'
+//     }]
+//     }] 
+    Price;
+    
+   @UI.identification: [{ position: 60 } ]
+   @UI.lineItem: [{ position: 60  }]
+    @Consumption.valueHelpDefinition: [{ 
+      entity.name: 'I_Currency',
+      entity.element: 'Currency' 
+      }]
+    CurrencyCode;
+   @UI.lineItem: [{ position: 70  }]
+    LastChangedAt;
+    /* Associations */
+//    _Booking;
+//    _Product;
+//    _SupplementText;
+//    _Travel;
+    
+}

@@ -4,30 +4,30 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZATS_HA_SB_V4_PROSESSOR</NAME>
+     <NAME>ZHAK_SB_V2</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Processor Binding for v4 Odata for UI</DESCRIPTION>
+     <DESCRIPTION>Travel Service Binding</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
      <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZATS_HA_SB_V4_PROSESSOR</NAME>
+      <NAME>ZHAK_SB_V2</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
-     <BIND_TYPE_VERSION>V4</BIND_TYPE_VERSION>
+     <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZATS_HA_SD_V2_PROCESSOR</SERVICE_NAME>
+       <SERVICE_NAME>ZHAK_SB_V2</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <RELEASE_STATE>NOT_RELEASED</RELEASE_STATE>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zats_ha_sd_v2_processor</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zhak_sd_v2_processor</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZATS_HA_SD_V2_PROCESSOR</NAME>
+          <NAME>ZHAK_SD_V2_PROCESSOR</NAME>
          </SRVD_REF>
          <BIND_TYPE_DATA>
           <CONTENT>
@@ -43,7 +43,6 @@
     <RELEASE_SUPPORTED>true</RELEASE_SUPPORTED>
     <PUBLISHED>true</PUBLISHED>
     <BINDING_CREATED>true</BINDING_CREATED>
-    <ALLOWED_ACTION>UNPUBLISH</ALLOWED_ACTION>
    </SRVB>
   </asx:values>
  </asx:abap>
